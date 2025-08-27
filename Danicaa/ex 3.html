@@ -1,77 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artisian Atelier - CSS Demo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artisian Atelier</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
 
-    <link rel="stylesheet" href="ex3.css">
+    header {
+      background: linear-gradient(135deg, #111, #333);
+      color: goldenrod;
+      text-align: center;
+      padding: 25px;
+      font-size: 2em;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
 
-    <style>
-        body {
-            background-color: #f5f5f5;
-            font-family: "Trebuchet MS", Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: rgb(8, 14, 0)
-        }
-        table {
-            margin: auto;
-            width: 80%;
-            border-collapse: collapse;
-        }
-        td {
-            padding: 15px;
-            vertical-align: top;
-            border: 1px solid #999;
-        }
-    </style>
+    .intro {
+      text-align: center;
+      margin: 20px auto;
+      max-width: 800px;
+      color: #555;
+      font-size: 1.1em;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      background: #fff;
+      margin: 30px auto;
+      padding: 20px;
+      width: 85%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .brand-section img {
+      width: 140px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .brand-section p {
+      flex: 1;
+      font-size: 0.95em;
+      color: #333;
+    }
+
+    .brand-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: goldenrod;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .brand-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #111;
+      color: #aaa;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: goldenrod;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-    
-    <h1 style="background-color: #ede7f6; padding: 10px; border-radius: 10px;">
-        ARTISIAN ATELIER
-    </h1>
 
-    <h3 style="text-align: center; color: #424242;">
-        Where craftsmanship meets timeless elegance
-    </h3>
+  <header>✨ Artisian Atelier ✨</header>
 
-    <br>
+  <div class="intro">
+    <p>Welcome to the land of <b>Artisian Atelier</b>, where every creation is a story of craftsmanship, elegance, and timeless artistry.</p>
+  </div>
 
-    <table>
-        <tr>
-            <td>
-                <img src="Versace-3.svg.png" alt="Versace" width="150" height="150">
-            </td>
-            <td>
-              Giorgio Armani is an Italian luxury fashion house founded by Giorgio Armani in 1975. Known for its clean, tailored lines and neutral color palette, the company designs and manufactures haute couture, ready-to-wear, leather goods, shoes, watches, jewelry, accessories, eyewear, cosmetics, and home interiors. The brand is recognized worldwide for its understated elegance and timeless style.
-            </td>
-        </tr>
-    </table>
-    <center>
-        <a href="https://www.versace.com/in/en/" class="brand-link">Visit Versace</a>
-    </center>
+  <!-- Versace Section -->
+  <div class="brand-section">
+    <img src="Versace-3.svg.png" alt="Versace">
+    <p><b>Versace</b> is an Italian luxury fashion house founded in 1978 by Gianni Versace. Known for bold designs and its iconic Medusa logo, the brand defines opulence with its haute couture, ready-to-wear, and accessories. Inspired by Greek mythology, Versace symbolizes timeless power and allure.</p>
+  </div>
+  <a class="brand-link" href="https://www.versace.com/in/en/">🌐 Dive into Versace</a>
 
-    <br>
+  <!-- Armani Section -->
+  <div class="brand-section">
+    <img src="Giorgio-Armani-Logo.png" alt="Armani">
+    <p><b>Armani</b>, founded in 1975 by Giorgio Armani, represents understated elegance and refined sophistication. From couture and ready-to-wear to home interiors and fragrances, Armani stands as a global symbol of luxury with clean, timeless aesthetics.</p>
+  </div>
+  <a class="brand-link" href="https://www.armani.com/en-wx/">🌐 Explore Armani</a>
 
-    <table>
-        <tr>
-            <td>
-                <img src="Giorgio-Armani-Logo.png" alt="Armani" width="150" height="150">
-            </td>
-            <td>
-               Giorgio Armani is an Italian luxury fashion house founded by Giorgio Armani in 1975. Known for its clean, tailored lines and neutral color palette, the company designs and manufactures haute couture, ready-to-wear, leather goods, shoes, watches, jewelry, accessories, eyewear, cosmetics, and home interiors. The brand is recognized worldwide for its understated elegance and timeless style.
-            </td>
-        </tr>
-    </table>
-    <center>
-        <a href="https://www.armani.com/en-wx/" class="brand-link">Visit Armani</a>
-    </center>
+  <footer>
+    &copy; 2025 Artisian Atelier | <a href="demohtml">⬅ Back to Dashboard</a>
+  </footer>
 
 </body>
 </html>
-
