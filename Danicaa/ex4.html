@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luxury Brand Registration</title>
+  <style>
+    body {
+      font-family: "Didot", serif;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background: #fff;
+      border: 1px solid #0ABAB5;
+      border-radius: 20px;
+      padding: 40px;
+      width: 400px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .brand-title {
+      font-size: 28px;
+      letter-spacing: 3px;
+      color: #0ABAB5;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #333;
+      text-align: left;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+    input:focus {
+      border-color: #0ABAB5;
+      box-shadow: 0 0 6px rgba(10,186,181,0.3);
+      outline: none;
+    }
+    .error {
+      color: #b30000;
+      font-size: 12px;
+      margin-top: -15px;
+      margin-bottom: 15px;
+      display: none;
+    }
+    input[type="submit"] {
+      background: #0ABAB5;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background: #088e8a;
+    }
+  </style>
+
+  <script>
+    function validateForm(event) {
+      event.preventDefault(); // stop normal submit
+      let name = document.forms["luxuryForm"]["name"].value.trim();
+      let email = document.forms["luxuryForm"]["email"].value.trim();
+      let password = document.forms["luxuryForm"]["password"].value.trim();
+
+      let valid = true;
+
+      // reset errors
+      document.getElementById("nameError").style.display = "none";
+      document.getElementById("emailError").style.display = "none";
+      document.getElementById("passwordError").style.display = "none";
+
+      if (name === "") {
+        document.getElementById("nameError").style.display = "block";
+        valid = false;
+      }
+
+      let emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        document.getElementById("emailError").style.display = "block";
+        valid = false;
+      }
+
+      if (password.length < 6) {
+        document.getElementById("passwordError").style.display = "block";
+        valid = false;
+      }
+
+      if (valid) {
+        // redirect to next page if valid
+        window.location.href = "ex4.1.html";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="form-container">
+    <div class="brand-title">Artisian Atelier</div>
+    <form name="luxuryForm" onsubmit="validateForm(event)">
+      <label for="name">Full Name</label>
+      <input type="text" name="name" id="name">
+      <div id="nameError" class="error">Name cannot be empty.</div>
+
+      <label for="email">Email Address</label>
+      <input type="email" name="email" id="email">
+      <div id="emailError" class="error">Enter a valid email address.</div>
+
+      <label for="password">Create Password</label>
+      <input type="password" name="password" id="password">
+      <div id="passwordError" class="error">Password must be at least 6 characters.</div>
+
+      <input type="submit" value="Continue ➝">
+    </form>
+  </div>
+</body>
+</html>
