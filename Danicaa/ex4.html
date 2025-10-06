@@ -2,129 +2,322 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Luxury Brand Registration</title>
+  <title>Artisian Atelier Client Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700,400|Montserrat:400,500" rel="stylesheet">
   <style>
+    :root {
+      --tiffany-blue: #81D8D0;
+      --tiffany-blue-dark: #60bab1;
+      --tiffany-blue-light: #E3FAF7;
+      --gold-accent: #CBA135;
+      --form-bg: #fff;
+    }
     body {
-      font-family: "Didot", serif;
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
+      background: linear-gradient(120deg, var(--tiffany-blue-light) 0%, var(--tiffany-blue) 100%);
+      font-family: 'Montserrat', 'sans-serif';
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .form-container {
-      background: #fff;
-      border: 1px solid #0ABAB5;
-      border-radius: 20px;
-      padding: 40px;
-      width: 400px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      text-align: center;
+    .luxury-form-wrapper {
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .brand-title {
-      font-size: 28px;
+    .luxury-form-container {
+      background: var(--form-bg);
+      box-shadow: 0 8px 32px rgba(129, 216, 208, 0.13);
+      border-radius: 22px;
+      padding: 38px 38px 32px 38px;
+      max-width: 640px;
+      width: 98vw;
+      margin: auto;
+      border: 2.5px solid var(--tiffany-blue);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      color: var(--tiffany-blue-dark);
+      font-size: 2.5rem;
       letter-spacing: 3px;
-      color: #0ABAB5;
-      margin-bottom: 20px;
-      font-weight: bold;
-      text-transform: uppercase;
+      margin-bottom: 25px;
+      text-align: center;
     }
     label {
       display: block;
-      margin-bottom: 6px;
-      font-size: 14px;
-      color: #333;
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+      color: var(--tiffany-blue-dark);
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .form-row {
+      width: 80%;
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: left;
     }
-    input {
+    input, select, textarea {
+      font-size: 1rem;
+      padding: 10px 13px;
+      border: 1.6px solid var(--tiffany-blue-dark);
+      border-radius: 9px;
       width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      font-size: 14px;
-      transition: 0.3s;
+      background: var(--tiffany-blue-light);
+      color: #066;
+      transition: border .3s;
+      font-family: 'Montserrat', 'sans-serif';
+      margin-bottom: 3px;
     }
-    input:focus {
-      border-color: #0ABAB5;
-      box-shadow: 0 0 6px rgba(10,186,181,0.3);
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold-accent);
+      box-shadow: 0 2px 14px var(--tiffany-blue)33;
       outline: none;
     }
-    .error {
-      color: #b30000;
-      font-size: 12px;
-      margin-top: -15px;
+    textarea {
+      resize: vertical;
+      min-height: 50px;
+      max-height: 180px;
+    }
+    .radio-group, .checkbox-group {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 8px;
+      justify-content: center;
+    }
+    .radio-group input, .checkbox-group input {
+      width: auto;
+      accent-color: var(--gold-accent);
+      margin-right: 7px;
+    }
+    .slider-group {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      justify-content: center;
+    }
+    input[type="range"] {
+      width: 70%;
+      accent-color: var(--tiffany-blue);
+    }
+    #budgetdisplay {
+      min-width: 35px;
+      font-size: 1.03rem;
+      font-weight: 500;
+      color: var(--gold-accent);
+      background: var(--tiffany-blue-light);
+      border-radius: 6px;
+      padding: 3px 7px;
+      border: 1px solid var(--tiffany-blue-dark);
+      text-align: center;
+      margin-left: 6px;
+    }
+    .form-actions {
+      text-align: center;
+      width: 80%;
+      margin-top: 10px;
+    }
+    button[type="submit"] {
+      background: linear-gradient(90deg, var(--tiffany-blue-dark) 30%, var(--tiffany-blue) 80%);
+      color: var(--form-bg);
+      font-size: 1.13rem;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 32px;
+      box-shadow: 0 2px 12px var(--tiffany-blue)33;
+      font-family: 'Cormorant Garamond', serif;
+      cursor: pointer;
+      transition: background .3s, box-shadow .2s;
+      margin-top: 12px;
+      letter-spacing: 1.5px;
+    }
+    button[type="submit"]:hover {
+      background: linear-gradient(90deg, var(--tiffany-blue) 0%, var(--gold-accent) 100%);
+      color: #066;
+      box-shadow: 0 4px 18px var(--gold-accent)44;
+      border: 2px solid var(--tiffany-blue-dark);
+    }
+    .terms-link {
+      color: var(--gold-accent);
+      text-decoration: underline;
+    }
+    .error-message {
+      color: #D56C52;
+      font-size: 0.94rem;
       margin-bottom: 15px;
       display: none;
+      width: 80%;
+      text-align: center;
     }
-    input[type="submit"] {
-      background: #0ABAB5;
-      color: white;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
-    input[type="submit"]:hover {
-      background: #088e8a;
+    @media (max-width: 700px) {
+      .luxury-form-container, .form-row, .form-actions {
+        width: 99vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+      }
+      h2 {
+        font-size: 1.7rem;
+      }
     }
   </style>
-
-  <script>
-    function validateForm(event) {
-      event.preventDefault(); // stop normal submit
-      let name = document.forms["luxuryForm"]["name"].value.trim();
-      let email = document.forms["luxuryForm"]["email"].value.trim();
-      let password = document.forms["luxuryForm"]["password"].value.trim();
-
-      let valid = true;
-
-      // reset errors
-      document.getElementById("nameError").style.display = "none";
-      document.getElementById("emailError").style.display = "none";
-      document.getElementById("passwordError").style.display = "none";
-
-      if (name === "") {
-        document.getElementById("nameError").style.display = "block";
-        valid = false;
-      }
-
-      let emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-      if (!emailPattern.test(email)) {
-        document.getElementById("emailError").style.display = "block";
-        valid = false;
-      }
-
-      if (password.length < 6) {
-        document.getElementById("passwordError").style.display = "block";
-        valid = false;
-      }
-
-      if (valid) {
-        // redirect to next page if valid
-        window.location.href = "ex4.1.html";
-      }
-    }
-  </script>
 </head>
 <body>
-  <div class="form-container">
-    <div class="brand-title">Artisian Atelier</div>
-    <form name="luxuryForm" onsubmit="validateForm(event)">
-      <label for="name">Full Name</label>
-      <input type="text" name="name" id="name">
-      <div id="nameError" class="error">Name cannot be empty.</div>
+<div class="luxury-form-wrapper">
+  <form id="artisian-atelier-form" class="luxury-form-container" novalidate>
+    <h2>Artisian Atelier Client Registration</h2>
+    <div class="error-message" id="errorMsg"></div>
 
-      <label for="email">Email Address</label>
-      <input type="email" name="email" id="email">
-      <div id="emailError" class="error">Enter a valid email address.</div>
+    
+    <div class="form-row">
+      <label for="fullname">Full Name*</label>
+      <input type="text" id="fullname" name="fullname" pattern="[A-Za-z\s]+" required title="Alphabets and spaces only">
+    </div>
 
-      <label for="password">Create Password</label>
-      <input type="password" name="password" id="password">
-      <div id="passwordError" class="error">Password must be at least 6 characters.</div>
+    <div class="form-row">
+      <label for="email">Email Address*</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+   
+    <div class="form-row">
+      <label for="phone">Contact Number*</label>
+      <input type="tel" id="phone" name="phone" pattern="^\d{10,15}$" required title="Enter 10-15 digits">
+    </div>
+   
+    <div class="form-row">
+      <label for="contact-method">Preferred Contact Method*</label>
+      <select id="contact-method" name="contact-method" required>
+        <option value="">Select</option>
+        <option value="email">Email</option>
+        <option value="phone">Phone</option>
+        <option value="whatsapp">WhatsApp</option>
+      </select>
+    </div>
+   
+    <div class="form-row">
+      <label for="country">Country*</label>
+      <input type="text" id="country" name="country" required list="country-list">
+      <datalist id="country-list">
+        <option>USA</option>
+        <option>UK</option>
+        <option>France</option>
+        <option>Italy</option>
+        <option>India</option>
+      </datalist>
+    </div>
+ 
+    <div class="form-row">
+      <label for="dob">Date of Birth*</label>
+      <input type="date" id="dob" name="dob" required min="1900-01-01" max="2007-12-31">
+    </div>
 
-      <input type="submit" value="Continue ➝">
-    </form>
-  </div>
+    <div class="form-row">
+      <label>Gender*</label>
+      <div class="radio-group">
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male" style="margin-right:0;">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female" style="margin-right:0;">Female</label>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other" style="margin-right:0;">Other</label>
+      </div>
+    </div>
+   
+    <div class="form-row">
+      <label for="style">Style Preference*</label>
+      <select id="style" name="style[]" multiple required>
+        <option value="classic">Classic</option>
+        <option value="modern">Modern</option>
+        <option value="avant-garde">Avant-garde</option>
+        <option value="minimalist">Minimalist</option>
+        <option value="opulent">Opulent</option>
+      </select>
+    </div>
+    
+    <div class="form-row slider-group">
+      <label for="budget">Preferred Budget (USD)*</label>
+      <input type="range" id="budget" name="budget" min="500" max="10000" step="100" oninput="document.getElementById('budgetdisplay').innerText = this.value;">
+      <span id="budgetdisplay">500</span>
+    </div>
+    
+    <div class="form-row">
+      <label>Interested Collections*</label>
+      <div class="checkbox-group">
+        <input type="checkbox" name="collection" value="Couture" required>
+        <label style="margin-right:0;">Couture</label>
+        <input type="checkbox" name="collection" value="Bespoke">
+        <label style="margin-right:0;">Bespoke</label>
+        <input type="checkbox" name="collection" value="Accessories">
+        <label style="margin-right:0;">Accessories</label>
+        <input type="checkbox" name="collection" value="Jewelry">
+        <label style="margin-right:0;">Jewelry</label>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <label for="visitpref">Preferred Visit Mode*</label>
+      <select id="visitpref" name="visitpref" required>
+        <option value="">Select</option>
+        <option value="showroom">Showroom Visit</option>
+        <option value="virtual">Virtual Consultation</option>
+        <option value="home">Home Appointment</option>
+      </select>
+    </div>
+ 
+    <div class="form-row">
+      <label for="address">Full Address*</label>
+      <textarea id="address" name="address" minlength="15" maxlength="150" required></textarea>
+    </div>
+   
+    <div class="form-row">
+      <label for="purpose">Occasion/Purpose</label>
+      <input type="text" id="purpose" name="purpose" placeholder="e.g., Gala, Wedding, Red Carpet">
+    </div>
+    
+    <div class="form-row">
+      <label for="appointment">Preferred Appointment Date</label>
+      <input type="date" id="appointment" name="appointment">
+    </div>
+
+    <div class="form-row">
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" name="notes" maxlength="250"></textarea>
+    </div>
+  
+    <div class="form-row">
+      <label>
+        <input type="checkbox" name="terms" required> I agree to the <a href="#" class="terms-link" target="_blank">privacy policy & client terms</a>*
+      </label>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="submit-btn" onclick="window.location.href='content.html'">Submit ✓</button>
+
+    </div>
+  </form>
+</div>
+<script>
+  document.getElementById('artisian-atelier-form').addEventListener('submit', function(event) {
+    if (!this.checkValidity()) {
+      document.getElementById('errorMsg').style.display = 'block';
+      document.getElementById('errorMsg').innerText = 'Please ensure all required fields are filled and formatted correctly.';
+      event.preventDefault();
+    } else {
+      document.getElementById('errorMsg').style.display = 'none';
+    }
+  });
+</script>
 </body>
 </html>
